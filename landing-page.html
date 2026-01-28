@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chai Culture – Coming Soon</title>
+
+  <!-- Tailwind CDN (OK for demo/assignment & Vercel) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royalGold: "#D4AF37",
+            creamBg: "#FBF7EE"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+  /* Ambient tea container */
+  .tea-ambient {
+    position: relative;
+    background-color: #3b1f0f;
+    overflow: hidden;
+  }
+
+  /* Shared pseudo-layer base */
+  .tea-ambient::before,
+  .tea-ambient::after {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    pointer-events: none;
+  }
+
+  /* Main warm stirring light */
+  .tea-ambient::before {
+    background: radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(255, 215, 120, 0.16),
+      transparent 55%
+    );
+    transition: background-position 0.15s ease-out;
+  }
+
+  /* Subtle ripple layer */
+  .tea-ambient::after {
+    background: radial-gradient(
+      circle at var(--rx, 50%) var(--ry, 50%),
+      rgba(255, 255, 255, 0.05),
+      transparent 60%
+    );
+    filter: blur(12px);
+    transition: background-position 0.4s ease-out;
+  }
+
+  .logo-clean {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+
+    /* Removes white background visually */
+    mix-blend-mode: multiply;
+
+    /* Softens harsh edges */
+    filter:
+      drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35))
+      contrast(1.15)
+      saturate(1.1);
+
+    background: transparent;
+  }
+
+  .logo-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;          /* 👈 cuts white edges */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Optional: subtle depth */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  }
+
+  .logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* fills circle nicely */
+  }
+
+  .logo-circle {
+    box-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.35),
+      0 0 12px rgba(245, 208, 122, 0.45);
+  }
+
+</style>
+
+
+</head>
+
+<body class="font-sans">
+
+<!-- ================= HERO ================= -->
+<section
+  id="hero"
+  class="tea-ambient min-h-screen flex items-center justify-center text-center relative"
+>
+  <div class="relative z-10 max-w-3xl px-6 text-white">
+
+    <div class="flex justify-center mb-6">
+      <div class="logo-circle">
+        <img
+          src="/chai-culture-logo.png"
+          alt="Chai Culture Logo"
+          class="logo-img"
+        />
+      </div>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold">Chai Culture</h1>
+    <p class="text-royalGold italic mt-2">Brew the Royal Tradition</p>
+
+    <div class="mt-6 inline-block border border-royalGold px-6 py-2 rounded-full text-sm">
+      LAUNCHING SOON
+    </div>
+
+    <p class="mt-8 text-lg text-gray-200">
+      A premium instant chai tea premix inspired by royal Indian households.
+      Rooted in heritage tea gardens and crafted with timeless elegance.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <input
+        id="emailInput"
+        type="email"
+        placeholder="Enter your email"
+        class="px-5 py-3 rounded-lg text-black w-72"
+      />
+
+      <button
+        id="notifyBtn"
+        class="bg-royalGold text-black px-6 py-3 rounded-lg font-semibold"
+      >
+        Notify Me
+      </button>
+    </div>
+
+    <p
+      id="notifyMessage"
+      class="mt-4 text-[#f5d07a] text-sm hidden"
+    >
+      ✔ Notified
+    </p>
+
+  </div>
+</section>
+
+<!-- Our Products Section -->
+<section class="bg-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2 class="text-4xl font-bold text-gray-900 mb-3">
+        Our Products
+      </h2>
+      <p class="text-gray-600">
+        Discover our range of authentic chai and tea products
+      </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Card 1 -->
+      <div class="p-8 border rounded-xl hover:shadow-lg transition">
+        <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-lg bg-[#fff4d6] text-[#d4af37]">
+          ☕
+        </div>
+        <h3 class="text-xl font-semibold mb-2">
+          Classic Masala Chai
+        </h3>
+        <p class="text-gray-600 text-sm">
+          Our signature blend of premium black tea with cardamom, ginger,
+          cinnamon, and cloves.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-8 border rounded-xl hover:shadow-lg transition">
+        <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-lg bg-[#fff4d6] text-[#d4af37]">
+          🍃
+        </div>
+        <h3 class="text-xl font-semibold mb-2">
+          Organic Tea Blends
+        </h3>
+        <p class="text-gray-600 text-sm">
+          Sourced from certified organic tea gardens, bringing you the
+          purest chai experience.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-8 border rounded-xl hover:shadow-lg transition">
+        <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-lg bg-[#fff4d6] text-[#d4af37]">
+          🎁
+        </div>
+        <h3 class="text-xl font-semibold mb-2">
+          Custom Gift Sets
+        </h3>
+        <p class="text-gray-600 text-sm">
+          Beautifully packaged chai sets perfect for gifting to your loved
+          ones.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="p-8 border rounded-xl hover:shadow-lg transition">
+        <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-lg bg-[#fff4d6] text-[#d4af37]">
+          🏪
+        </div>
+        <h3 class="text-xl font-semibold mb-2">
+          Chai Bar Supplies
+        </h3>
+        <p class="text-gray-600 text-sm">
+          Wholesale supplies for cafes and restaurants looking to serve
+          authentic chai.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="p-8 border rounded-xl hover:shadow-lg transition">
+        <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-lg bg-[#fff4d6] text-[#d4af37]">
+          🚚
+        </div>
+        <h3 class="text-xl font-semibold mb-2">
+          Home Delivery
+        </h3>
+        <p class="text-gray-600 text-sm">
+          Fresh chai delivered to your doorstep. Subscribe for regular
+          deliveries.
+        </p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="p-8 border rounded-xl hover:shadow-lg transition">
+        <div class="w-12 h-12 mb-4 flex items-center justify-center rounded-lg bg-[#fff4d6] text-[#d4af37]">
+          🏅
+        </div>
+        <h3 class="text-xl font-semibold mb-2">
+          Premium Collection
+        </h3>
+        <p class="text-gray-600 text-sm">
+          Exclusive rare tea blends from single-estate gardens across India.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE ================= -->
+<section class="bg-[#fdf6ec] py-20">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6">
+
+    <!-- Image -->
+    <div>
+      <img
+        src="./teahills.png"
+        alt="Indian tea plantation hills"
+        class="rounded-xl shadow-lg w-full object-cover"
+      />
+    </div>
+
+    <!-- Content -->
+    <div>
+      <h2 class="text-3xl font-bold mb-4 text-[#3b1f0f]">
+        Why Choose Chai Culture
+      </h2>
+
+      <p class="text-gray-700 mb-6">
+        We blend tradition with quality to bring you the most authentic chai experience.
+        Every cup tells a story of heritage and craftsmanship.
+      </p>
+
+      <ul class="space-y-3 text-gray-800">
+        <li>✔ 100% natural ingredients</li>
+        <li>✔ Sourced from Indian tea estates</li>
+        <li>✔ Royal family recipes</li>
+        <li>✔ Freshly ground spices</li>
+        <li>✔ Ethical sourcing</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-serif mb-4">
+      What Our Customers Say
+    </h2>
+    <p class="text-gray-600 mb-12">
+      Join thousands of chai lovers who trust Chai Culture for their daily cup
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-[#fff7e6] p-8 rounded-2xl shadow-sm">
+        <div class="flex text-royalGold mb-4">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 mb-6">
+          “The most authentic chai I've tasted outside of India! The spice
+          blend is perfect and reminds me of my grandmother's kitchen.”
+        </p>
+        <h4 class="font-semibold">Priya Sharma</h4>
+        <span class="text-sm text-gray-500">Tea Enthusiast</span>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#fff7e6] p-8 rounded-2xl shadow-sm">
+        <div class="flex text-royalGold mb-4">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 mb-6">
+          “We switched to Chai Culture for our cafe and our customers can't
+          stop raving about it. The quality is exceptional and consistent.”
+        </p>
+        <h4 class="font-semibold">David Martinez</h4>
+        <span class="text-sm text-gray-500">Cafe Owner</span>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#fff7e6] p-8 rounded-2xl shadow-sm">
+        <div class="flex text-royalGold mb-4">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 mb-6">
+          “I start every morning with Chai Culture masala chai. It's become an
+          essential part of my daily routine. Simply delicious!”
+        </p>
+        <h4 class="font-semibold">Aisha Patel</h4>
+        <span class="text-sm text-gray-500">Regular Customer</span>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="bg-[#fff7e6] p-6 rounded-xl shadow-sm">
+        <div class="flex gap-1 mb-3 text-yellow-400">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 italic mb-4">
+          "Chai Culture brings back the warmth of homemade chai. The aroma, the balance of spices, everything feels authentic and comforting."
+        </p>
+        <h4 class="font-semibold text-gray-900">Rohan Mehta</h4>
+        <span class="text-sm text-gray-500">Startup Founder</span>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="bg-[#fff7e6] p-6 rounded-xl shadow-sm">
+        <div class="flex gap-1 mb-3 text-yellow-400">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 italic mb-4">
+          "I’ve tried chai blends from around the world, but Chai Culture stands out. Smooth, rich, and perfectly spiced without being overpowering."
+        </p>
+        <h4 class="font-semibold text-gray-900">Emily Carter</h4>
+        <span class="text-sm text-gray-500">Tea Blogger</span>
+      </div>
+
+      <!-- Review 6 -->
+      <div class="bg-[#fff7e6] p-6 rounded-xl shadow-sm">
+        <div class="flex gap-1 mb-3 text-yellow-400">
+          ★★★★★
+        </div>
+        <p class="text-gray-700 italic mb-4">
+          "From packaging to taste, Chai Culture feels premium. It’s become a part of my daily routine, especially during late-night work sessions."
+        </p>
+        <h4 class="font-semibold text-gray-900">Arjun Nair</h4>
+        <span class="text-sm text-gray-500">Product Designer</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Start Your Chai Journey Today -->
+<section class="relative py-20 px-6 bg-[#7a3e0f] text-center text-white">
+  <!-- Background overlay -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <div class="relative max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold mb-4">
+      Start Your Chai Journey Today
+    </h2>
+
+    <p class="text-lg text-[#f5d07a] mb-8">
+      Subscribe to our newsletter for exclusive offers, chai recipes, and brewing tips
+      delivered straight to your inbox.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <input
+        id="subscribeEmail"
+        type="email"
+        placeholder="Enter your email"
+        class="px-5 py-3 rounded-lg text-black w-72"
+      />
+
+      <button
+        id="subscribeBtn"
+        class="bg-royalGold text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition"
+      >
+        Subscribe
+      </button>
+    </div>
+
+    <p
+      id="subscribeMessage"
+      class="mt-4 text-[#f5d07a] text-sm hidden"
+    >
+      ✔ Subscribed successfully!
+    </p>
+
+    <p class="mt-6 text-sm text-[#f5d07a]">
+      Or visit our cafe at <span class="font-semibold">123 Chai Street, Mumbai</span>
+    </p>
+  </div>
+</section>
+
+<!-- ChaiCulture Brand Footer -->
+<section class="bg-[#3b1f0f] text-[#f5d07a] py-16 px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <!-- Brand -->
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <img
+          src="chai-culture-logo.png"
+          alt="Chai Culture Logo"
+          class="w-10 h-10 rounded-full"
+        />
+        <h3 class="text-xl font-bold text-white">ChaiCulture</h3>
+      </div>
+
+      <p class="text-sm leading-relaxed">
+        Brewing happiness, one cup at a time with authentic Indian chai
+        inspired by royal traditions.
+      </p>
+    </div>
+
+    <!-- Products -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Products</h4>
+      <ul class="space-y-2 text-sm">
+        <li>Masala Chai</li>
+        <li>Green Tea</li>
+        <li>Gift Sets</li>
+        <li>Accessories</li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li>Our Story</li>
+        <li>Locations</li>
+        <li>Blog</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Connect</h4>
+      <div class="flex gap-4 text-xl text-white">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Email">✉</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="bg-[#3b1f0f] text-white py-6 text-center">
+  <p class="text-sm opacity-80">© 2026 Chai Culture. All rights reserved.</p>
+</footer>
+
+<script src="landing-page.js"></script>
+</body>
+</html>
