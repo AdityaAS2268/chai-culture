@@ -1,44 +1,59 @@
-const hero = document.getElementById("hero");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* Tea ripple effect (already working) */
-let ticking = false;
+  /* ================= HERO RIPPLE EFFECT ================= */
 
-hero.addEventListener("mousemove", (e) => {
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      const rect = hero.getBoundingClientRect();
+  const hero = document.getElementById("hero");
 
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
+  if (hero) {
+    let ticking = false;
 
-      hero.style.setProperty("--x", `${x}%`);
-      hero.style.setProperty("--y", `${y}%`);
-      hero.style.setProperty("--rx", `${x - 2}%`);
-      hero.style.setProperty("--ry", `${y + 2}%`);
+    hero.addEventListener("mousemove", (e) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
 
-      ticking = false;
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+          hero.style.setProperty("--x", `${x}%`);
+          hero.style.setProperty("--y", `${y}%`);
+          hero.style.setProperty("--rx", `${x - 2}%`);
+          hero.style.setProperty("--ry", `${y + 2}%`);
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
     });
-
-    ticking = true;
   }
-});
 
-/* Notify Me interaction */
-const notifyBtn = document.getElementById("notifyBtn");
-const emailInput = document.getElementById("emailInput");
-const notifyMessage = document.getElementById("notifyMessage");
+  /* ================= NOTIFY INTERACTION ================= */
 
-notifyBtn.addEventListener("click", () => {
-  if (emailInput.value.trim() === "") return;
+  const notifyBtn = document.getElementById("notifyBtn");
+  const emailInput = document.getElementById("emailInput");
+  const notifyMessage = document.getElementById("notifyMessage");
 
-  // Show message
-  notifyMessage.classList.remove("hidden");
+  if (notifyBtn && emailInput && notifyMessage) {
+    notifyBtn.addEventListener("click", () => {
+      const email = emailInput.value.trim();
 
-  // Clear input
-  emailInput.value = "";
+      if (email === "") return;
 
-  // Optional: hide message again after 3 seconds
-  setTimeout(() => {
-    notifyMessage.classList.add("hidden");
-  }, 3000);
+      // Clear input text
+      emailInput.value = "";
+
+      // Optional UX polish
+      emailInput.blur();
+
+      // Show notified message
+      notifyMessage.classList.remove("hidden");
+
+      // Hide message after 3 seconds
+      setTimeout(() => {
+        notifyMessage.classList.add("hidden");
+      }, 3000);
+    });
+  }
+
 });
