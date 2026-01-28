@@ -26,56 +26,64 @@
 <body class="font-sans">
 
 <!-- ================= HERO ================= -->
-<section
-  id="hero"
-  class="tea-ambient min-h-screen flex items-center justify-center text-center relative"
->
-  <div class="relative z-10 max-w-3xl px-6 text-white">
+<section class="tea-ambient min-h-screen flex items-center justify-center">
+  <div class="text-center relative">
 
-    <div class="flex justify-center mb-6">
-      <div class="logo-circle">
-        <img
-          src="images/chai-culture-logo.png"
-          alt="Chai Culture Logo"
-          class="logo-img"
-        />
-      </div>
+    <!-- LOGO -->
+    <div class="mx-auto mb-6 w-20 h-20 rounded-full overflow-hidden logo-circle fade-up fade-delay-1">
+      <img
+        src="images/chai-culture-logo.png"
+        alt="Chai Culture Logo"
+        class="logo-img"
+      />
     </div>
 
-    <h1 class="text-4xl md:text-5xl font-bold">Chai Culture</h1>
-    <p class="text-royalGold italic mt-2">Brew the Royal Tradition</p>
+    <!-- BRAND NAME -->
+    <h1 class="text-5xl font-bold text-white fade-up fade-delay-2">
+      Chai Culture
+    </h1>
 
-    <div class="mt-6 inline-block border border-royalGold px-6 py-2 rounded-full text-sm">
-      LAUNCHING SOON
+    <!-- TAGLINE -->
+    <p class="mt-2 text-royalGold italic fade-up fade-delay-3">
+      Brew the Royal Tradition
+    </p>
+
+    <!-- LAUNCH BADGE -->
+    <div class="mt-6 fade-up fade-delay-3">
+      <span class="inline-block px-6 py-2 border border-royalGold text-royalGold rounded-full">
+        LAUNCHING SOON
+      </span>
     </div>
 
-    <p class="mt-8 text-lg text-gray-200">
+    <!-- DESCRIPTION -->
+    <p class="mt-6 max-w-xl mx-auto text-gray-200 fade-up fade-delay-3">
       A premium instant chai tea premix inspired by royal Indian households.
       Rooted in heritage tea gardens and crafted with timeless elegance.
     </p>
 
-    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+    <!-- EMAIL CTA -->
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-delay-3">
       <input
-        id="emailInput"
         type="email"
+        aria-label="Email address"
         placeholder="Enter your email"
         class="px-5 py-3 rounded-lg text-black w-72"
       />
-
-      <button
-        id="notifyBtn"
-        class="bg-royalGold text-black px-6 py-3 rounded-lg font-semibold"
-      >
+      <button class="bg-royalGold text-black px-6 py-3 rounded-lg font-semibold">
         Notify Me
       </button>
     </div>
 
+    <!-- NOTIFIED MESSAGE -->
     <p
       id="notifyMessage"
-      class="mt-4 text-[#f5d07a] text-sm hidden"
+      class="mt-4 text-[#f5d07a] text-sm hidden fade-up"
     >
       ✔ Notified
     </p>
+
+  </div>
+</section>
 
   </div>
 </section>
