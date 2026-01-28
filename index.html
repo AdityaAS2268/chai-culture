@@ -67,20 +67,28 @@
     </p>
 
     <!-- EMAIL CTA -->
-    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center fade-up fade-delay-3 w-full max-w-md mx-auto">
+    <div
+      class="mt-8 flex items-center gap-2 w-full max-w-sm mx-auto
+            bg-white rounded-full p-1 shadow-lg fade-up fade-delay-3"
+    >
       <input
+        id="emailInput"
         type="email"
-        aria-label="Email address"
-        required
         placeholder="Enter your email"
-        class="px-5 py-3 rounded-lg text-black w-full sm:w-72"
+        class="flex-1 px-4 py-3 rounded-full text-sm text-black
+              focus:outline-none"
       />
+
       <button
-        class="bg-royalGold text-black px-6 py-3 rounded-lg font-semibold w-full sm:w-auto"
+        id="notifyBtn"
+        class="bg-royalGold text-black px-5 py-3 rounded-full
+              text-sm font-semibold whitespace-nowrap
+              hover:opacity-90 transition"
       >
-        Notify Me
+        Notify
       </button>
     </div>
+
 
     <!-- NOTIFIED MESSAGE -->
     <p
@@ -297,7 +305,7 @@
         <div class="flex gap-1 mb-3 text-yellow-400">
           ★★★★★
         </div>
-        <p class="text-gray-700 italic mb-4">
+        <p class="text-gray-700 mb-4">
           "Chai Culture brings back the warmth of homemade chai. The aroma, the balance of spices, everything feels authentic and comforting."
         </p>
         <h4 class="font-semibold text-gray-900">Rohan Mehta</h4>
@@ -309,7 +317,7 @@
         <div class="flex gap-1 mb-3 text-yellow-400">
           ★★★★★
         </div>
-        <p class="text-gray-700 italic mb-4">
+        <p class="text-gray-700 mb-4">
           "I’ve tried chai blends from around the world, but Chai Culture stands out. Smooth, rich, and perfectly spiced without being overpowering."
         </p>
         <h4 class="font-semibold text-gray-900">Emily Carter</h4>
@@ -321,7 +329,7 @@
         <div class="flex gap-1 mb-3 text-yellow-400">
           ★★★★★
         </div>
-        <p class="text-gray-700 italic mb-4">
+        <p class="text-gray-700 mb-4">
           "From packaging to taste, Chai Culture feels premium. It’s become a part of my daily routine, especially during late-night work sessions."
         </p>
         <h4 class="font-semibold text-gray-900">Arjun Nair</h4>
@@ -347,17 +355,21 @@
       delivered straight to your inbox.
     </p>
 
-    <div class="flex flex-col sm:flex-row justify-center gap-4 w-full max-w-md mx-auto">
+    <div class="mt-8 flex items-center gap-2 w-full max-w-sm mx-auto bg-white rounded-full p-1 shadow-lg">
+
       <input
         id="subscribeEmail"
         type="email"
         placeholder="Enter your email"
-        class="px-5 py-3 rounded-lg text-black w-full sm:w-72"
+        class="flex-1 px-4 py-3 rounded-full text-sm text-black
+              focus:outline-none"
       />
 
       <button
         id="subscribeBtn"
-        class="bg-royalGold text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition w-full sm:w-auto"
+        class="bg-royalGold text-black px-5 py-3 rounded-full
+              text-sm font-semibold whitespace-nowrap
+              hover:opacity-90 transition"
       >
         Subscribe
       </button>
@@ -376,7 +388,7 @@
   </div>
 </section>
 
-<!-- ChaiCulture Brand Footer -->
+<!-- Chai Culture Brand Footer -->
 <section class="bg-[#3b1f0f] text-[#f5d07a] py-16 px-6">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
 
@@ -397,10 +409,16 @@
       </p>
     </div>
 
-    <!-- Products -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+  
+  <div class="grid grid-cols-2 gap-10 mt-8 text-left">
+
+    <!-- PRODUCTS -->
     <div>
-      <h4 class="text-white font-semibold mb-4">Products</h4>
-      <ul class="space-y-2 text-sm">
+      <h3 class="text-white font-semibold text-lg mb-4">
+        Products
+      </h3>
+      <ul class="space-y-2 text-[#f5d07a] text-sm">
         <li>Masala Chai</li>
         <li>Green Tea</li>
         <li>Gift Sets</li>
@@ -408,16 +426,19 @@
       </ul>
     </div>
 
-    <!-- Company -->
+    <!-- COMPANY -->
     <div>
-      <h4 class="text-white font-semibold mb-4">Company</h4>
-      <ul class="space-y-2 text-sm">
+      <h3 class="text-white font-semibold text-lg mb-4">
+        Company
+      </h3>
+      <ul class="space-y-2 text-[#f5d07a] text-sm">
         <li>Our Story</li>
         <li>Locations</li>
         <li>Blog</li>
         <li>Contact</li>
       </ul>
     </div>
+  </div>
 
     <!-- Social -->
     <div>

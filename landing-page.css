@@ -139,7 +139,7 @@ box-shadow:
 
 .tea-ambient {
   background: radial-gradient(
-    circle at var(--x, 50%) var(--y, 50%),
+    circle at var(--x, 50%) var(--y, -50%),
     rgba(181, 134, 83, 0.18),
     #3b1f0f 60%
   );
