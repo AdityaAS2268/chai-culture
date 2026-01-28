@@ -1,16 +1,26 @@
 const hero = document.getElementById("hero");
 
 /* Tea ripple effect (already working) */
+let ticking = false;
+
 hero.addEventListener("mousemove", (e) => {
-  const rect = hero.getBoundingClientRect();
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const rect = hero.getBoundingClientRect();
 
-  const x = ((e.clientX - rect.left) / rect.width) * 100;
-  const y = ((e.clientY - rect.top) / rect.height) * 100;
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-  hero.style.setProperty("--x", `${x}%`);
-  hero.style.setProperty("--y", `${y}%`);
-  hero.style.setProperty("--rx", `${x - 2}%`);
-  hero.style.setProperty("--ry", `${y + 2}%`);
+      hero.style.setProperty("--x", `${x}%`);
+      hero.style.setProperty("--y", `${y}%`);
+      hero.style.setProperty("--rx", `${x - 2}%`);
+      hero.style.setProperty("--ry", `${y + 2}%`);
+
+      ticking = false;
+    });
+
+    ticking = true;
+  }
 });
 
 /* Notify Me interaction */
